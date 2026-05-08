@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>heartsalove.com — Corações femininos / Hearts a Love</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="heartsalove.com is a global atlas of women’s names and abstract hearts, minted as NFTs by the studio super class 7." />
+  <style>
+    :root {
+      --bg: #050308;
+      --bg-alt: #0b0713;
+      --accent: #ff2b6c;
+      --accent-soft: #ff8ab3;
+      --text: #f5f5f7;
+      --muted: #a0a0b8;
+      --card: #120b1f;
+      --border: #2a2038;
+      --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --max-width: 960px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font-main);
+      background: radial-gradient(circle at top, #1b0c2a 0, #050308 55%, #020108 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--accent-soft);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    header, section, footer {
+      padding: 48px 16px;
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .hero {
+      padding-top: 72px;
+      padding-bottom: 64px;
+      text-align: center;
+    }
+
+    .hero-title {
+      font-size: clamp(2.2rem, 5vw, 3.2rem);
+      margin-bottom: 8px;
+      letter-spacing: 0.04em;
+    }
+
+    .hero-tagline {
+      font-size: 1.05rem;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .hero-subline {
+      font-size: 0.98rem;
+      color: var(--accent-soft);
+      margin-bottom: 32px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 20px;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: all 0.18s ease-out;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #ff2b6c, #ff8ab3);
+      color: #07030b;
+      box-shadow: 0 0 24px rgba(255, 43, 108, 0.35);
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 0 32px rgba(255, 43, 108, 0.55);
+      transform: translateY(-1px);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--accent-soft);
+      border-color: var(--accent-soft);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(255, 255, 255, 0.05);
+      transform: translateY(-1px);
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(255, 43, 108, 0.08);
+      color: var(--accent-soft);
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    section {
+      border-top: 1px solid rgba(255, 255, 255, 0.02);
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0.01), transparent);
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      margin-bottom: 8px;
+    }
+
+    .section-intro {
+      color: var(--muted);
+      font-size: 0.94rem;
+      margin-bottom: 24px;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 32px;
+      align-items: flex-start;
+    }
+
+    @media (max-width: 768px) {
+      .two-col {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 16px;
+      padding: 20px 20px 18px;
+      border: 1px solid var(--border);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+    }
+
+    .card-alt {
+      background: radial-gradient(circle at top left, #261234 0, #120b1f 40%, #08040f 100%);
+    }
+
+    .muted {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 16px;
+      margin-top: 12px;
+    }
+
+    .timeline-item {
+      padding: 14px 16px 10px;
+      border-radius: 12px;
+      background: rgba(8, 4, 20, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.03);
+    }
+
+    .timeline-title {
+      font-size: 0.96rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+      color: var(--accent-soft);
+    }
+
+    .timeline-sub {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .columns {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .columns {
+        grid-template-columns: minmax(0,1fr);
+      }
+    }
+
+    .form-note {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+    .footer {
+      font-size: 0.78rem;
+      color: var(--muted);
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+      background: #050308;
+    }
+
+    .footer-links {
+      margin-bottom: 8px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .footer-links a {
+      font-size: 0.8rem;
+    }
+
+    .small {
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- HERO -->
+  <header class="hero">
+    <div class="container">
+      <div class="pill">super class 7 presents</div>
+      <h1 class="hero-title">Corações femininos / Hearts a Love</h1>
+      <p class="hero-tagline">A global atlas of women’s names and abstract hearts, minted as NFTs.</p>
+      <p class="hero-subline">Five thousand names. Five thousand hearts. One collection by the studio super class 7.</p>
+
+      <div class="hero-buttons">
+        <a href="#" class="btn btn-primary">View the collection on Magic Eden</a>
+        <a href="#" class="btn btn-ghost">Watch the project video</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <h2>About “Hearts a Love”</h2>
+      <p class="section-intro">
+        A finite universe of women’s names and abstract hearts, researched and created by super class 7.
+      </p>
+      <div class="two-col">
+        <div>
+          <p>
+            We started with names, not with hype. heartsalove.com maps thousands of women’s names from Western, Asian and African
+            cultures, keeping their original spellings. From that research, we built a finite universe of around five thousand names —
+            a tiny, poetic fraction of the millions of women who carry them.
+          </p>
+          <p>
+            Each name receives an abstract heart created by the same hand inside the studio super class 7. These hearts are not
+            personality tests. They are free visual interpretations that share a name, not definitions of a person. The real meaning
+            comes from the stories people attach to them: why this name, this heart, this moment.
+          </p>
+          <p>
+            The collection unfolds in NFT drops on Magic Eden, and each heart can be claimed and printed in large format. Over time,
+            the public’s own reasons for choosing names become part of the artwork itself.
+          </p>
+        </div>
+        <div>
+          <div class="card card-alt">
+            <div class="label">Key points</div>
+            <p class="small">
+              • ~5,000 women’s names across Western, Asian and African cultures.<br />
+              • Each name paired with a unique abstract heart, created by one artist’s hand.<br />
+              • Released in curated NFT drops on Magic Eden, for both crypto‑native and first‑time collectors.<br />
+              • High‑resolution files available for large‑scale printing.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DROPS & ROADMAP -->
+  <section id="drops">
+    <div class="container">
+      <h2>Drops & Roadmap</h2>
+      <p class="section-intro">
+        The collection is released in chapters. Each drop explores a different layer of how we name and love.
+      </p>
+
+      <div class="card">
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-title">Drop 1 — 100 NFTs</div>
+            <div class="timeline-sub">Simple Western names — first market test, the beginning of the atlas.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-title">Drop 2 — 200 NFTs</div>
+            <div class="timeline-sub">Original Asian spellings — a second chapter for international voices.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-title">Drop 3 — 200 NFTs — “The Affection Drop”</div>
+            <div class="timeline-sub">Nicknames and diminutives — the names used in private, by the people who care.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-title">Drop 4 — 200 NFTs — “The Full Name Drop”</div>
+            <div class="timeline-sub">Composite names — the full formal identities we carry on documents and ceremonies.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-title">Special Auction — “Mary Jean” × MSF</div>
+            <div class="timeline-sub">A single, more intensely crafted piece, auctioned to support Doctors Without Borders.</div>
+          </div>
+        </div>
+        <p class="muted" style="margin-top: 14px;">
+          The full universe of “Corações femininos / Hearts a Love” is limited to around 5,000 names and hearts.
+          Once this atlas is complete, there will be no expansion packs.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARY JEAN × MSF -->
+  <section id="mary-jean">
+    <div class="container">
+      <h2>“Mary Jean” × Doctors Without Borders (MSF)</h2>
+      <p class="section-intro">
+        One heart that carries a different emotional weight, opened to support real women in real crises.
+      </p>
+
+      <div class="card card-alt">
+        <p>
+          Within this universe, “Mary Jean” is a singular heart. It carries the birth name of Marilyn Monroe — a woman whose image
+          was adored while her pain was often ignored. Inside our studio, this was the work that demanded the most time, attention
+          and emotional weight. The same hand that shaped every heart in the collection spent longer here, layer after layer, until
+          the image felt heavy enough to stand alone.
+        </p>
+        <p>
+          All proceeds from the auction of “Mary Jean” go to Doctors Without Borders / Médecins Sans Frontières (MSF), supporting
+          medical work in real crises far away from any glamour. The donation will be sent through an official MSF channel, and the
+          transaction will be publicly verifiable so collectors can follow the path from artwork to aid.
+        </p>
+        <p class="small">
+          Reserve price: 1,000 USD equivalent. The auction runs in parallel with the early drops of “Corações femininos / Hearts a Love”.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- NAMES PORTAL & STORIES -->
+  <section id="stories">
+    <div class="container">
+      <h2>Names, stories and why they matter</h2>
+      <p class="section-intro">
+        The project becomes real when people attach their own stories to it.
+      </p>
+
+      <div class="two-col">
+        <div>
+          <p>
+            This project becomes real when people attach their own stories to it. Before and after each drop, we invite you to tell us
+            why you would choose — or not choose — a specific name and heart.
+          </p>
+          <p>
+            Are you looking for your own name? The name of someone you love? A name you wish you had? A name you lost?
+            Your answer helps us understand how these abstract hearts resonate in real lives. Over time, these responses form an invisible
+            layer of the artwork.
+          </p>
+        </div>
+        <div>
+          <div class="card">
+            <div class="label">Tell us your story</div>
+            <p class="small">
+              Use the form below (or our future “names portal”) to share why you would buy – or not buy – a given name.
+            </p>
+            <!-- Placeholder form – you can replace action with your real endpoint -->
+            <form action="#" method="post">
+              <p class="small">
+                <label>
+                  Which name or heart are you looking at?<br />
+                  <input type="text" name="name_looking_at" style="width:100%;padding:6px 8px;margin-top:4px;border-radius:6px;border:1px solid #312842;background:#07030b;color:#f5f5f7;font-size:0.9rem;" />
+                </label>
+              </p>
+              <p class="small">
+                <label>
+                  Why would you buy (or not buy) this name?<br />
+                  <textarea name="reason" rows="4" style="width:100%;padding:6px 8px;margin-top:4px;border-radius:6px;border:1px solid #312842;background:#07030b;color:#f5f5f7;font-size:0.9rem;"></textarea>
+                </label>
+              </p>
+              <p class="small">
+                <label>
+                  Optional: where in the world are you?<br />
+                  <input type="text" name="location" style="width:100%;padding:6px 8px;margin-top:4px;border-radius:6px;border:1px solid #312842;background:#07030b;color:#f5f5f7;font-size:0.9rem;" />
+                </label>
+              </p>
+              <button type="submit" class="btn btn-ghost" style="margin-top:4px;">Send story</button>
+              <div class="form-note">
+                We may share anonymized excerpts of these stories in future chapters of the project.
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW TO COLLECT -->
+  <section id="how-to-collect">
+    <div class="container">
+      <h2>How to collect a heart</h2>
+      <p class="section-intro">
+        A simple path for first‑time buyers and crypto‑native collectors.
+      </p>
+
+      <div class="columns">
+        <div class="card">
+          <div class="label">If this is your first NFT</div>
+          <p class="small">
+            • You can buy “Hearts a Love” directly on Magic Eden using a credit or debit card, or a Solana wallet.<br />
+            • Follow the link to the official collection page. Magic Eden will guide you through the payment steps.<br />
+            • After purchase, your NFT will appear in your Magic Eden profile and connected wallet. You can keep it, trade it, or
+            download the high‑resolution file for printing.
+          </p>
+        </div>
+        <div class="card">
+          <div class="label">If you’re crypto‑native</div>
+          <p class="small">
+            • “Corações femininos / Hearts a Love” is minted on Magic Eden for the Solana ecosystem.<br />
+            • You can buy with SOL or supported payment methods directly on the marketplace.<br />
+            • Check the collection floor, upcoming drops and the special “Mary Jean” auction from the same official link.
+          </p>
+        </div>
+      </div>
+
+      <div style="margin-top:20px;">
+        <a href="#" class="btn btn-primary">Open the official collection on Magic Eden</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- STUDIO -->
+  <section id="studio">
+    <div class="container">
+      <h2>About super class 7</h2>
+      <p class="section-intro">
+        A small anonymous studio devoted to a single universe: “Corações femininos / Hearts a Love”.
+      </p>
+
+      <div class="card">
+        <p>
+          super class 7 is a small, anonymous studio focused on a single universe: “Corações femininos / Hearts a Love”.
+          We chose anonymity so the spotlight stays on the names and the work, not on a personal brand.
+        </p>
+        <p>
+          Every image in the collection is created by the same hand. There is no factory of generic assets, no outsourced packs.
+          One piece, “Mary Jean”, received an even larger share of that time and heart — some collectors may feel it, others may not.
+          Both responses are valid.
+        </p>
+        <p class="muted">
+          For questions, collaborations or press, reach out via our social links below.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-links">
+        <!-- Replace # with real URLs -->
+        <a href="#">Magic Eden collection</a>
+        <a href="#">X (Twitter)</a>
+        <a href="#">Instagram</a>
+        <a href="#">YouTube</a>
+        <a href="#">GitHub / Transparency (soon)</a>
+      </div>
+      <p>
+        heartsalove.com and “Corações femininos / Hearts a Love” are projects by the studio super class 7.
+        This site does not represent Doctors Without Borders / MSF; it commits to directing auction proceeds from “Mary Jean”
+        to official MSF donation channels.
+      </p>
+      <p>
+        © <span id="year"></span> super class 7 — all rights reserved.
+      </p>
+    </div>
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </footer>
+</body>
+</html>
